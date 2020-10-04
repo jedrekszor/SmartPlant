@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SmartPlant</title>
+    <script src="jquery.js"></script>
+    <script src="controller.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Smart Plant</h1>
+        </header>
+
+        <section id="currentFlower"></section>
+        </section>
+
+        <div class="mainFlex">
+
+            <section id="changeHumi">
+                <form action="/export" method="POST">
+                    <h3>Change current humidity threshold</h3>
+                    <input id="var" name="humidity" placeholder="value" type="number" />
+                    <input type="submit" id="submit_button" value="Submit" />
+                </form>
+            </section>
+
+            <section id="setFlower">
+                <form action="/export_set" method="POST">
+                    <h3>Set current flower</h3>
+                    <select id="sp_set" data-style="btn-info" name="selectpicker_set">
+                        <optgroup label="Choose flower" id='optgroup_set'>
+                            <option name="" value="0">Select flower to set</option>
+                        </optgroup>
+                    </select>
+
+                    <input type="submit" id="submit_button" value="Submit" />
+                </form>
+            </section>
+        </div>
+
+        <div class="mainFlex">
+            <section id="addNewFlower">
+                <form action="/flowers_add" method="POST">
+                    <h3>Add new flower</h3>
+                    <input id="name" name="name" placeholder="name" type="text" />
+                    <input id="name" name="temperature" placeholder="temperature" type="number" />
+                    <input id="name" name="humidity" placeholder="humidity" type="number" />
+                    <input type="submit" id="submit_button" value="Submit" />
+                </form>
+            </section>
+
+
+            <section id="deleteFlower">
+                <form action="/flowers_remove" method="POST">
+                    <h3>Delete flower</h3>
+                    <select id="selectpicker" data-style="btn-info" name="selectpicker_remove">
+                        <optgroup label="Choose flower" id='optgroup_remove'>
+                            <option name="" value="0">Select flower to delete</option>
+                        </optgroup>
+                    </select>
+                    <input type="submit" class="submit_button" value="Submit" />
+                </form>
+            </section>
+        </div>
+
+        <section id="displayFlowers">
+            <div class="mainFlex">
+                <!-- JavaScript injecting flowers from database -->
+                <section id="flowers"></section>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>
